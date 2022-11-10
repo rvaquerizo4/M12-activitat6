@@ -6,21 +6,26 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 
 
 @Entity
 public class Course {
 		
-	
-	
+		
 		@Id
 		@GeneratedValue(strategy = GenerationType.IDENTITY)
 		private long id;
 		
 		private String title;
 
+		@JsonIgnore
 		@OneToOne(mappedBy = "course")
 		private CourseMaterial courseMaterial;
+
+		
 		
 		public Course() { //constructor sense arguments
 		}

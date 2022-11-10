@@ -6,9 +6,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 
 @Entity
 public class CourseMaterial {
+	
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,6 +22,8 @@ public class CourseMaterial {
 	
 	@OneToOne
 	private Course course;
+	
+	
 	
 	public CourseMaterial() { //constructor sense arguments
 	}
