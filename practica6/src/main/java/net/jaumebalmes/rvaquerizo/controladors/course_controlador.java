@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import net.jaumebalmes.rvaquerizo.entitats.Course;
 import net.jaumebalmes.rvaquerizo.repositoris.course_repositori;
 
@@ -26,8 +28,8 @@ public class course_controlador {
 	public List<Course> getCourse() {
 		List<Course> course1 = courseRep.findAll();
 		return course1;
+		
 	}
-	
 	@GetMapping("course/{id}")
 	public Course getCourse(@PathVariable long id) {
 		Course course2 = courseRep.findById(id).get();
