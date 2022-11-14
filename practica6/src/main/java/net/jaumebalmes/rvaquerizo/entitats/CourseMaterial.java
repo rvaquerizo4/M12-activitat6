@@ -1,13 +1,15 @@
 package net.jaumebalmes.rvaquerizo.entitats;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 
 
 @Entity
@@ -20,7 +22,8 @@ public class CourseMaterial {
 	
 	private String url;
 	
-	@OneToOne
+	//@OneToOne
+	@ManyToOne
 	private Course course;
 	
 	
@@ -32,8 +35,8 @@ public class CourseMaterial {
 		super();
 		this.url = url;
 	}
-	
-	
+
+
 
 	public Course getCourse() {
 		return course;
@@ -63,6 +66,8 @@ public class CourseMaterial {
 	public String toString() {
 		return "CourseMaterial [id_course=" + id_course + ", url=" + url + ", course=" + course + "]";
 	}
+
+
 
 
 
