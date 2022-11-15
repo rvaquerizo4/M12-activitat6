@@ -9,6 +9,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -28,10 +29,13 @@ public class Course {
 
 		
 		@OneToMany(mappedBy = "course", fetch = FetchType.EAGER)
-		//@OneToOne(mappedBy = "course")
 		@JsonIgnore
-		//private Set<Course> course= new HashSet<Course>();
 		private List<CourseMaterial> courseMaterial;
+		
+		@ManyToMany(mappedBy = "Student",fetch = FetchType.EAGER)
+		@JsonIgnore
+		private List<Student> Student;
+
 
 		
 		

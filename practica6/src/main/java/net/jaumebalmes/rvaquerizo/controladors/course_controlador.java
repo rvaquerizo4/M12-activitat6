@@ -40,7 +40,7 @@ public class course_controlador {
 	}
 	
 	//Metodo para eliminar por Id
-	@DeleteMapping("course/{id}")
+	@DeleteMapping("course/delete/{id}")
 	public void deletePost(@PathVariable Long id) {
 		courseRep.deleteById(id);
 
