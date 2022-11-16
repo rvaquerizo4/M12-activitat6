@@ -72,6 +72,11 @@ public class Course {
 		public void setCourseMaterial(List<CourseMaterial> courseMaterial) {
 			this.courseMaterial = courseMaterial;
 		}
+		
+		public void deleteMaterial(CourseMaterial m) {
+			CourseMaterial.remove(m);
+			m.setCourse(null);
+		}
 
 		@Override
 		public String toString() {

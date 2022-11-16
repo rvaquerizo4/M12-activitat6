@@ -59,10 +59,16 @@ public class CourseMaterial {
 	public void setUrl(String url) {
 		this.url = url;
 	}
+	
 
 	@Override
 	public String toString() {
 		return "CourseMaterial [id_course=" + id_course + ", url=" + url + ", course=" + course + "]";
+	}
+
+	public static void remove(CourseMaterial m) {
+		// TODO Auto-generated method stub
+		
 	}
 
 

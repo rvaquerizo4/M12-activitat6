@@ -3,16 +3,16 @@ package net.jaumebalmes.rvaquerizo.controladors;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import net.jaumebalmes.rvaquerizo.entitats.CourseMaterial;
 import net.jaumebalmes.rvaquerizo.repositoris.CourseMaterial_repositori;
-
+import net.jaumebalmes.rvaquerizo.repositoris.course_repositori;
 
 
 @RestController
@@ -33,6 +33,14 @@ public class CourseMaterial_controlador {
 		CourseMaterial course2 = courseMaterialRep.findById(id).get();
 
 		return course2;
+	}
+	
+	//Metodo para eliminar por Id
+	@DeleteMapping("courseMaterial/delete/{id}")
+	public void deletePost(@PathVariable Long id) {
+		courseMaterialRep.deleteById(id);
+
+	
 	}
 
 }
