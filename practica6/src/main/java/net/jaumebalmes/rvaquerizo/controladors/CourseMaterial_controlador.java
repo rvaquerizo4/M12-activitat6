@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import net.jaumebalmes.rvaquerizo.entitats.CourseMaterial;
 import net.jaumebalmes.rvaquerizo.repositoris.CourseMaterial_repositori;
-import net.jaumebalmes.rvaquerizo.repositoris.course_repositori;
 
 
 @RestController

@@ -1,5 +1,6 @@
 package net.jaumebalmes.rvaquerizo.entitats;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -28,14 +29,12 @@ public class Course {
 		private String title;
 
 		
-		@OneToMany(mappedBy = "course", fetch = FetchType.EAGER)
-		@JsonIgnore
-		private List<CourseMaterial> courseMaterial;
+		//@OneToMany(mappedBy = "course", fetch = FetchType.EAGER)
+		//@JsonIgnore
+		//private List<CourseMaterial> courseMaterial;
 		
-		@ManyToMany(mappedBy = "Student",fetch = FetchType.EAGER)
-		@JsonIgnore
-		private List<Student> Student;
-
+	    @ManyToMany(mappedBy = "student")
+	    public ArrayList<Student> student = new ArrayList<>();
 
 		
 		
@@ -64,24 +63,44 @@ public class Course {
 			this.title = title;
 		}
 		
-
-		public List<CourseMaterial> getCourseMaterial() {
-			return courseMaterial;
-		}
-
-		public void setCourseMaterial(List<CourseMaterial> courseMaterial) {
-			this.courseMaterial = courseMaterial;
-		}
 		
-		public void deleteMaterial(CourseMaterial m) {
-			CourseMaterial.remove(m);
-			m.setCourse(null);
+		
+
+		//public List<CourseMaterial> getCourseMaterial() {
+			//return courseMaterial;
+		//}
+
+//		public void setCourseMaterial(List<CourseMaterial> courseMaterial) {
+//			this.courseMaterial = courseMaterial;
+//		}
+//		
+//		public void deleteMaterial(CourseMaterial m) {
+//			CourseMaterial.remove(m);
+//			m.setCourse(null);
+//		}
+
+
+		public void setStudent(ArrayList<Student> student) {
+			this.student = (ArrayList<Student>) student;
+		}
+
+
+
+		public ArrayList<Student> getStudent() {
+			return student;
+			// TODO Auto-generated method stub
+		}
+
+		public static void remove(Course course) {
+			// TODO Auto-generated method stub
+			
 		}
 
 		@Override
 		public String toString() {
-			return "Course [id=" + id + ", title=" + title + ", courseMaterial=" + courseMaterial + "]";
+			return "Course [id=" + id + ", title=" + title + ", student=" + student + "]";
 		}
 
+		
 		
 }
